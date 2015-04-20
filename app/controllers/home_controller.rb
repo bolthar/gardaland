@@ -3,7 +3,7 @@
 class HomeController < ApplicationController
 
   def index
-    @attractions = Attraction.all
+    @attractions = JsosonnAttraction.all
   end
 
 end

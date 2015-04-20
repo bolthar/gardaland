@@ -1,7 +1,7 @@
 namespace :log do
  
   task :register => :environment do
-    attractions = Attraction.all
+    attractions = JsonAttraction.all
     date_format = "%d/%m/%Y - %H:%M:%S"
     file_name   = File.dirname(__FILE__) + "/last_date"
     current_date = attractions.first.created_at
