@@ -20,4 +20,15 @@ ActiveRecord::Schema.define(:version => 20150415151452) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "attractions", :force => true do |t|
+    t.string  "name"
+    t.integer "opened_from"
+  end
+
+  create_table "data_points", :force => true do |t|
+    t.integer  "attraction_id"
+    t.datetime "date"
+    t.integer  "wait_time"
+  end
+
 end

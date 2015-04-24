@@ -1,3 +1,4 @@
+
 namespace :log do
  
   task :register => :environment do
@@ -16,6 +17,10 @@ namespace :log do
       File.delete(file_name)
       File.write(file_name, current_date.strftime(date_format))
     end
+  end
+
+  task :process => :environment do
+    
   end
 
 end
