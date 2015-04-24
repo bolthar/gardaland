@@ -49,3 +49,8 @@ bower.json
 # Ignore pow environment settings
 /tmp
 log.sh
+
+lib/tasks/last_date
+
+lib/tasks/last_date
+config/database.yml
