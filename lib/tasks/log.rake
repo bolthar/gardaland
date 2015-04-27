@@ -44,11 +44,13 @@ namespace :log do
       while opening_time < end_date
         get_times_starting_at(opening_time).each do |time|
 	  logs = AttractionLog.where("name = ? AND created_at BETWEEN ? AND ?", att.name, time - 30.minutes, time + 30.minutes)
-          data_point = DataPoint.new
-          data_point.attraction = att
-          data_point.wait_time = logs.sum { |x| x.wait_time } / logs.count
-          data_point.date = time
-          data_point.save
+          if logs.any?
+            data_point = DataPoint.new
+            data_point.attraction = att
+            data_point.wait_time = logs.sum { |x| x.wait_time } / logs.count
+            data_point.date = time
+            data_point.save
+	  end
         end
 	opening_time = opening_time + 1.day
       end
