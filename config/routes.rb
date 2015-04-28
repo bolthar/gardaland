@@ -4,15 +4,16 @@ Gardaland::Application.routes.draw do
   root :to => "home#index"
 
   scope '/api' do
-    scope '/attractions' do
-      get '/' => 'api#attractions'
-    end
+    get '/attractions' => 'api#attractions'
+    get '/opening_time/:at' => 'api#opening_time'
     scope '/date' do
       scope ':at' do
         get '/' => 'api#at'
       end
     end
   end
+
+  get '/stats' => 'stats#index'
  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -44,6 +45,7 @@ Gardaland::Application.routes.draw do
   #   end
 
   # Sample resource route with more complex sub-resources
+  
   #   resources :products do
   #     resources :comments
   #     resources :sales do
