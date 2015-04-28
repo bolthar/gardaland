@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require Chart
-//= require_tree .
