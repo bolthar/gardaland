@@ -32,9 +32,9 @@ function getDataForSelectedDay() {
   var currentDate = $("#datepicker").datepicker("getDate");
   $.getJSON("/api/date/" + currentDate, function(res) {
     data = res;
+    updateGraph();
   });
   $("#dataLabel").html(currentDate);
-  updateGraph();
 }
 
 function menuItemFrom(item) {
