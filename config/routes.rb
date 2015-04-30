@@ -13,6 +13,8 @@ Gardaland::Application.routes.draw do
     end
   end
 
+  get '/stats/adachetoest/:date' => 'stats#all_data'
+
   get '/stats' => 'stats#index'
  
   # Sample of regular route:
