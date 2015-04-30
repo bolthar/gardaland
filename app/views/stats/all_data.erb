@@ -1,0 +1,20 @@
+
+<% @data.each do |d| %>
+
+  <h3><%= d[:attraction] %></h3>
+  <table>
+    <col width="100"></col>
+    <col width="4"></col>
+    <th>Data/Ora</th>
+    <th>Attesa</th>
+    <tbody>
+      <% d[:values].each do |value| %>
+        <tr>
+	  <td style="padding 5px"><%= (value.created_at + 2.hour.strftime("%H:%M") %></td>
+	  <td><%= value.wait_time %></td>
+	</tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
