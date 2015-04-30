@@ -10,7 +10,7 @@
     <tbody>
       <% d[:values].each do |value| %>
         <tr>
-	  <td style="padding 5px"><%= (value.created_at + 2.hour.strftime("%H:%M") %></td>
+	  <td style="padding 5px"><%= (value.created_at + 2.hour).strftime("%H:%M") %></td>
 	  <td><%= value.wait_time %></td>
 	</tr>
       <% end %>
