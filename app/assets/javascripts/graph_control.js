@@ -5,6 +5,9 @@ var selectedAttraction = null;
 var timeIntervals = null;
 var chart = null;
 
+var saltasu = new Audio('assets/saltasu.mp3');
+var buttagiu = new Audio('assets/buttagiu.mp3');
+
 function setTimeIntervals(opening_time) {
   var from = opening_time.from;
   var to = opening_time.to;
@@ -35,6 +38,7 @@ function getDataForSelectedDay() {
     updateGraph();
   });
   $("#dataLabel").html(currentDate);
+  saltasu.play();
 }
 
 function menuItemFrom(item) {
@@ -87,6 +91,7 @@ $(function() {
     $(".menuItem").click(function() {
       selectedAttraction = $(this).attr('data-attraction');
       updateGraph();
+      buttagiu.play();
     });
   });
 
