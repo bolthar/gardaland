@@ -17,8 +17,10 @@ function setTimeIntervals(opening_time) {
     timeIntervals.push(i + ":30");
   }
 
-  var canvas = $("#chart").get(0).getContext("2d");
-  chart = new Chart(canvas).Line({ 
+  if (chart === null)
+  {
+    var canvas = $("#chart").get(0).getContext("2d");
+    chart = new Chart(canvas).Line({ 
           labels: timeIntervals, 
           datasets: [
               {
@@ -29,6 +31,10 @@ function setTimeIntervals(opening_time) {
                 data : $.map(timeIntervals, function (v, i) { return 0 })
               } 
           ]});
+  } else {
+    chart.scale.xLabels = timeIntervals;
+    chart.update();
+  }
 }
 
 function getDataForSelectedDay() {
