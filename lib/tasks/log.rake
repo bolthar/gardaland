@@ -1,7 +1,7 @@
 
 def get_times_starting_at(starting_time) #nasty
   result = []
-  while !(starting_time.hour == 16 && starting_time.min == 00)
+  while !(starting_time.hour == DataPoint.open_until(starting_time) && starting_time.min == 00)
     result << starting_time
     starting_time += 30.minutes
   end

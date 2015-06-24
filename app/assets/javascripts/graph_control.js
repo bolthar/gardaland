@@ -33,9 +33,12 @@ function setTimeIntervals(opening_time) {
 
 function getDataForSelectedDay() {
   var currentDate = $("#datepicker").datepicker("getDate");
-  $.getJSON("/api/date/" + currentDate, function(res) {
-    data = res;
-    updateGraph();
+  $.getJSON("/api/opening_time/" + $("#datepicker").datepicker("getDate"), function(res) {
+    setTimeIntervals(res);
+    $.getJSON("/api/date/" + currentDate, function(res) {
+      data = res;
+      updateGraph();
+    });
   });
   $("#dataLabel").html(currentDate);
   saltasu.play();
@@ -80,10 +83,6 @@ $(function() {
   
   getDataForSelectedDay();
 
-  $.getJSON("/api/opening_time/" + $("#datepicker").datepicker("getDate"), function(res) {
-    setTimeIntervals(res);
-  });
-   
   $.getJSON("/api/attractions", function(res) {
     $.each(res, function(i, att) {
       $("#menu").append(menuItemFrom(att));

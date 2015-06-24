@@ -16,8 +16,8 @@ class ApiController < ApplicationController
 
   def opening_time
     date = Date.parse(params[:at])
-    # need opening times calendaar
-    render :json => { :from => 10, :to => 18 } 
+    opening = { :from => 10, :to => DataPoint.open_until(date) }
+    render :json => opening
   end
 
 end
