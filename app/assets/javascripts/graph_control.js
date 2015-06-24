@@ -71,6 +71,10 @@ function updateGraph() {
       waitingTimes.push(null);
     }
   });
+  for(var i = 0; i < chart.datasets[0].points.length; i++)
+  {
+     chart.datasets[0].points[i].value = null;
+  }
 
   for(var i = 0; i < waitingTimes.length;i++)
   {
