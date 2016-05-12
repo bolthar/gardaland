@@ -1,4 +1,3 @@
-require 'open-uri'
 
 class JsonAttraction
   
@@ -26,7 +25,7 @@ class JsonAttraction
   end
   
   def self.all
-    attractions = JSON.load(open("http://merlincms.com/qfetcher/GardaQ.json"))
+    attractions = JSON.load(`fetch_gardaland`)
     created_at  = DateTime.strptime(attractions["Status"].gsub("Stato al: ", "").gsub("*", ""), "%d/%m/%Y - %H:%M:%S")
     attractions = attractions["Attractions"]["Attraction"].select { |x| x["Name"] != "(null)" }.map { |x| JsonAttraction.new(x, created_at) }.sort_by(&:attesa)
     return attractions
