@@ -1,4 +1,5 @@
-
+require 'date'
+require 'json'
 class JsonAttraction
   
   attr_reader :created_at
