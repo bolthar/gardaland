@@ -16,8 +16,6 @@ Gardaland::Application.routes.draw do
   get '/stats/adachetoest/:date' => 'stats#all_data'
 
   get '/stats' => 'stats#index'
-
-  get '/adachetoest' => 'home#adachetoest'
  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

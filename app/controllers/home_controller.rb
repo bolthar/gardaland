@@ -3,9 +3,10 @@
 class HomeController < ApplicationController
 
   def index
-  end
-
-  def adachetoest
+    if File.exist?("/tmp/ranked")
+      render :lol and return
+    end
+    @attractions = JsonAttraction.all
   end
 
 end
