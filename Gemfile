@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'chart-js-rails'
+gem 'json', '1.8.5'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
